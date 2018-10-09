@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 import './feedback.css';
 
 export default function Feedback(props) {
@@ -26,3 +26,4 @@ export default function Feedback(props) {
     </h2>
   );
 }
+export default connect(mapStateToProps)(Feedback);
