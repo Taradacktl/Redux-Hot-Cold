@@ -8,7 +8,7 @@ const initialState = {
     };
 
 export const gameReducer = (state=initialState, action) => {
-    if (action.type === actions.RESTART_GAME) {
+    if (action.type === RESTART_GAME) {
         return Object.assign({}, state, {
             guesses: [],
             feedback: 'Make your guess!',
@@ -17,7 +17,8 @@ export const gameReducer = (state=initialState, action) => {
         
         });
     }
-    if (action.type === actions.MAKE_GUESS) {
+    if (action.type === MAKE_GUESS) {
+        let feedback, guess;
         guess = parseInt(guess, 10);
         if (isNaN(guess)) {
         feedback = 'Please enter a valid number.';
@@ -50,7 +51,7 @@ export const gameReducer = (state=initialState, action) => {
         });   
     }
 
-    if (action.type === actions.GENERATE_AURAL_UPDATE) {
+    if (action.type === GENERATE_AURAL_UPDATE) {
         const { guesses, feedback } = state;
         const pluralize = guesses.length !== 1;
         let  auralStatus = `Here's the status of the game right now: ${feedback} You've made ${guesses.length} ${pluralize ? 'guesses' : 'guess'}.`;

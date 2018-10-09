@@ -21,7 +21,7 @@ export function TopNav(props) {
             href="#feedback"
             className="new"
             aria-label="Start a new game"
-            onClick={() => props.onRestartGame()}
+            onClick={() => props.dispatch(restartGame(Math.floor(Math.random() * 100) + 1))}
           >
             + New Game
           </a>
@@ -32,7 +32,7 @@ export function TopNav(props) {
             /* the `visuallyhidden` class hides an element 
             while leaving it available to screen reader users  */
             className="visuallyhidden focusable status-link"
-            onClick={() => props.onGenerateAuralUpdate()}
+            onClick={() => props.dispatch(generateAuralUpdate())}
           >
             Hear state of game
           </a>
